@@ -1,0 +1,52 @@
+<h2>basket Summary</h2>
+<hr class="hr">
+
+<div class="container-fluid">
+    <div class="row mt-5" *ngIf="!basket">
+        <div class="col-12 mt-5">
+            <h1 class="mt-5 pt-5 text-center">No Products</h1>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="basket">
+        <div class="border border-primary w-100 mb-3" *ngFor="let order of basket.orders">
+            <div class="row" *ngIf="order.quantity > 0">
+                <div class="col-12 col-md-6 p-3">
+                    <div class="d-flex">
+                        <img src="./../../../../assets/images/product.png" alt="product" style="width:150px; height:150px; object-fit: contain;">
+                        <div class="d-flex flex-column ms-3 w-100 justify-content-between">
+                            <div>
+                                <h2>{{order.product.name}}</h2>
+                                <p>{{order.product.description}}</p>
+                            </div>
+                            <p class="mb-0">{{order.product.price | currency}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 offset-md-3 p-3 position-relative">
+                    <div class="w-100 h-100 d-flex flex-column justify-content-between">
+                        <div class="d-flex">
+                            <i class="fa-solid fa-plus mx-3" style="cursor: pointer;" (click)="increment(order.product)"></i>
+                            <i class="fa-solid fa-subtract me-5" style="cursor: pointer;"  (click)="decrement(order.product)"></i>
+                            <div >Quantity: {{order.quantity}}</div>
+                        </div>
+                        <div class="mx-3 text-end">
+                            {{order.product.price * order.quantity  |currency}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="basket">
+            <hr class="hr">
+            <p class="text-end">Total: {{basket.price}}$</p>
+            <div class="d-flex w-100 justify-content-end">
+                <button class="btn btn-outline-secondary me-3 mb-5" (click)="clearBasket()">Clear basket</button>
+                <button class="btn btn-primary mb-5" (click)="onCheckout()">Proceed to checkout</button>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="check == true">
+    STRIPE IMPLEMENTATIOn
+    </div>
+</div>

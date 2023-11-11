@@ -12,13 +12,14 @@ import { ShopComponent } from './shop/shop.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorInterceptor } from './shared/interceptor.interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    ShopComponent
+    ShopComponent,
   ],
   imports: [
     BrowserModule,

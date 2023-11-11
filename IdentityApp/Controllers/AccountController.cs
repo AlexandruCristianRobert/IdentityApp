@@ -78,6 +78,7 @@ namespace Webshop.Controllers
         {
             return new UserDto
             {
+                Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Jwt = _jwtService.CreateJwt(user)

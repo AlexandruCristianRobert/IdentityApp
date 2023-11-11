@@ -22,6 +22,7 @@ builder.Services.AddDbContext<Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddScoped<ProductService>();
 
 builder.Services.AddIdentityCore<User>(options =>
 {

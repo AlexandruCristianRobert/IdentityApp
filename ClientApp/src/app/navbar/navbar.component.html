@@ -15,6 +15,9 @@
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/shop" routerLinkActive="active">Shop</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/checkout" routerLinkActive="active">checkout</a>
+                    </li>
                 </ul>
 
                 <ul class="navbar-nav"  *ngIf="(accountService.user$ | async) === null">

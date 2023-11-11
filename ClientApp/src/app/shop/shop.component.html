@@ -1,1 +1,26 @@
-<p *ngIf="message">{{message}}</p>
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-12">
+            <h1>Shop</h1>
+            <hr class="hr">
+        </div>
+    </div>
+    <div class="row" *ngIf="!products">
+        <div class="col-12 text-center">
+            <h1>No products</h1>
+        </div>
+    </div>
+    <div class="row" *ngIf="products">
+        <div class="card m-3" *ngFor="let product of products" style="width: 18rem;">
+            <img src="./../../assets/images/product.png" class="card-img-top" alt="product" style="width:16rem; height:10rem;object-fit: contain;">
+            <div class="card-body">
+              <h5 class="card-title">{{product.name}}</h5>
+              <p class="card-text">{{product.description}}</p>
+              <p class="card-text text-end">{{product.price | currency}}</p>
+              <div class="d-flex w-100 justify-content-end">
+                  <a class="btn btn-primary" (click)="addToBasket(product)">Add to basket</a>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

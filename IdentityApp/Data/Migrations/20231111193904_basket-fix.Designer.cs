@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Webshop.Data;
 
@@ -11,9 +12,11 @@ using Webshop.Data;
 namespace Webshop.Data.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20231111193904_basket-fix")]
+    partial class basketfix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -182,7 +185,7 @@ namespace Webshop.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BasketId")
+                    b.Property<int?>("BasketId")
                         .HasColumnType("int");
 
                     b.Property<double>("Price")
@@ -357,19 +360,15 @@ namespace Webshop.Data.Migrations
 
             modelBuilder.Entity("Webshop.Data.Entities.Order", b =>
                 {
-                    b.HasOne("Webshop.Data.Entities.Basket", "Basket")
+                    b.HasOne("Webshop.Data.Entities.Basket", null)
                         .WithMany("Orders")
-                        .HasForeignKey("BasketId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BasketId");
 
                     b.HasOne("Webshop.Data.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Basket");
 
                     b.Navigation("Product");
                 });

@@ -10,8 +10,8 @@ namespace Webshop.Data
         public Context(DbContextOptions<Context> options): base(options)
         {
         }
-        DbSet<Product> Products { get; set; }
-        DbSet<Order> Orders { get; set; }
-        DbSet<Basket> Baskets { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
     }
 }
