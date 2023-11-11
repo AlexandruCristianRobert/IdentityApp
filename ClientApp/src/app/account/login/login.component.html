@@ -1,0 +1,39 @@
+<div class="container align-items-center" style="margin-top:200px">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="email">Email address</label>
+                    <input formControlName="username" type="email" id="email" class="form-control" [class.is-invalid]="submitted && loginForm.get('username')?.errors" />
+                    <span class="text-danger" *ngIf="submitted && loginForm.get('username')?.hasError('required')">Email is required</span>
+                </div>
+              
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="password">Password</label>
+                    <input formControlName="password" type="password" id="password" class="form-control" [class.is-invalid]="submitted && loginForm.get('password')?.errors" />
+                    <span class="text-danger" *ngIf="submitted && loginForm.get('password')?.hasError('required')">Email is required</span>
+                </div>
+              
+                <div class="row mb-4">
+                  <div class="col d-flex justify-content-center">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="checkbox" checked style="cursor: pointer;" />
+                      <label class="form-check-label" for="checkbox"> Remember me </label>
+                    </div>
+                  </div>
+              
+                  <div class="col">
+                    <a href="#!">Forgot password?</a>
+                  </div>
+                </div>
+                <div class="form-floatin" *ngIf="errorMessages.length > 0">
+                    <app-validation-messages [errorMessages]="errorMessages"></app-validation-messages>
+                </div>
+              
+                <button type="submit" class="btn btn-primary btn-block mb-4 w-100">Sign in</button>
+              </form>
+        </div>
+    </div>
+</div>

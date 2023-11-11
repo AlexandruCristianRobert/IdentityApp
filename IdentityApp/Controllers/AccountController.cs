@@ -65,11 +65,11 @@ namespace IdentityApp.Controllers
                 EmailConfirmed = true,
             };
 
-            var result = await _userManager.CreateAsync(userToAdd, model.Password);
+             var result = await _userManager.CreateAsync(userToAdd, model.Password);
 
             if (!result.Succeeded) return BadRequest(result.Errors);
 
-            return Ok("Account created successfully");
+            return Ok(new JsonResult(new { title = "Account Created", message = "Your account has been created, you can login" }));
         }
 
 
