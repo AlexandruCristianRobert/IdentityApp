@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace IdentityApp.Controllers
+namespace Webshop.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]

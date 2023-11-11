@@ -1,4 +1,4 @@
-﻿namespace IdentityApp.DTOs.Account
+﻿namespace Webshop.DTOs.Account
 {
     public class UserDto
     {

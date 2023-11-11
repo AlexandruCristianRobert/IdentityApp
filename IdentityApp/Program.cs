@@ -1,6 +1,6 @@
-using IdentityApp.Data;
-using IdentityApp.Models;
-using IdentityApp.Services;
+using Webshop.Data;
+using Webshop.Models;
+using Webshop.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;

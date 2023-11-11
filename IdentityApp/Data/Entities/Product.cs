@@ -1,4 +1,4 @@
-﻿namespace IdentityApp.Data.Entities
+﻿namespace Webshop.Data.Entities
 {
     public class Product
     {
@@ -6,6 +6,7 @@
         public string Name { get; set; }
         public string ImgUrl { get; set; }
         public double Price { get; set; }
+        public string Description { get; set; }
 
     }
 }

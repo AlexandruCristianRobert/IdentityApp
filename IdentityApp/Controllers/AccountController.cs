@@ -1,13 +1,13 @@
-﻿using IdentityApp.DTOs.Account;
-using IdentityApp.Models;
-using IdentityApp.Services;
+﻿using Webshop.DTOs.Account;
+using Webshop.Models;
+using Webshop.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
-namespace IdentityApp.Controllers
+namespace Webshop.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

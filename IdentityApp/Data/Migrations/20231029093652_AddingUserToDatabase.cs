@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace IdentityApp.Data.Migrations
+namespace Webshop.Data.Migrations
 {
     /// <inheritdoc />
     public partial class AddingUserToDatabase : Migration
