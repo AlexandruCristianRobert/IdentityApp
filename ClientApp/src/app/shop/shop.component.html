@@ -5,6 +5,31 @@
             <hr class="hr">
         </div>
     </div>
+    <div *ngIf="user != null && user.lastName == 'marius' && user.firstName == 'ciobanu'">
+        <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+            <div class="form-outline mb-4">
+                <label class="form-label" for="productName">Name</label>
+                <input formControlName="productName" type="productName" id="productName" class="form-control" />
+            </div>
+          
+            <div class="form-outline mb-4">
+                <label class="form-label" for="productDescription">Description</label>
+                <input formControlName="productDescription" type="text" id="productDescription" class="form-control"/>
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="productPrice">Price</label>
+                <input formControlName="productPrice" type="text" id="productPrice" class="form-control"/>
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="productImgUrl">Img Url</label>
+                <input formControlName="productImgUrl" type="text" id="productImgUrl" class="form-control"/>
+            </div>
+          
+            <button type="submit" class="btn btn-primary btn-block mb-4 w-100">Add  Product</button>
+          </form>
+    </div>
     <div class="row" *ngIf="!products">
         <div class="col-12 text-center">
             <h1>No products</h1>
@@ -12,7 +37,7 @@
     </div>
     <div class="row" *ngIf="products">
         <div class="card m-3" *ngFor="let product of products" style="width: 18rem;">
-            <img src="./../../assets/images/product.png" class="card-img-top" alt="product" style="width:16rem; height:10rem;object-fit: contain;">
+            <img src="{{product.imgUrl}}" class="card-img-top" alt="product" style="width:16rem; height:10rem;object-fit: contain;">
             <div class="card-body">
               <h5 class="card-title">{{product.name}}</h5>
               <p class="card-text">{{product.description}}</p>

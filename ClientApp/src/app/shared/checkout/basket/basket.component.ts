@@ -62,7 +62,6 @@ export class BasketComponent implements OnInit {
     })
   }
 
-
   onCheckout(): void {
     this.check = true;
     this.http.post(`${environment.appUrl}/checkout/checkout`, this.basket).subscribe(async (res:  any) => {

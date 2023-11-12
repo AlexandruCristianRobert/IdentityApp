@@ -20,6 +20,10 @@ export class ShopService {
     return this.http.post(`${environment.appUrl}/api/shop/add-basket`, this.basket);
   }
 
+  addProduct(product: Product){
+    return this.http.post(`${environment.appUrl}/api/shop/add-product`, product);
+  }
+
   emptyBasket(){
     return this.http.delete(`${environment.appUrl}/api/shop/empty-basket/${this.basket?.id}`)
   }
