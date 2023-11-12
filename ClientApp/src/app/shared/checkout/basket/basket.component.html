@@ -41,12 +41,9 @@
             <hr class="hr">
             <p class="text-end">Total: {{basket.price}}$</p>
             <div class="d-flex w-100 justify-content-end">
-                <button class="btn btn-outline-secondary me-3 mb-5" (click)="clearBasket()">Clear basket</button>
-                <button class="btn btn-primary mb-5" (click)="onCheckout()">Proceed to checkout</button>
+                <button class="btn btn-outline-secondary me-3 mb-5" [disabled]="basket.price == 0" (click)="clearBasket()">Clear basket</button>
+                <button class="btn btn-primary mb-5" [disabled]="basket.price == 0" (click)="onCheckout()">Proceed to checkout</button>
             </div>
         </div>
-    </div>
-    <div class="row" *ngIf="check == true">
-    STRIPE IMPLEMENTATIOn
     </div>
 </div>

@@ -5,6 +5,8 @@ import { NotFoundComponent } from './shared/components/errors/not-found/not-foun
 import { ShopComponent } from './shop/shop.component';
 import { AuthorizationGuard } from './shared/guards/authorization.guard';
 import { CheckoutComponent } from './shared/checkout/checkout.component';
+import { SuccessComponent } from './shared/checkout/success/success.component';
+import { CancelComponent } from './shared/checkout/cancel/cancel.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -14,7 +16,13 @@ const routes: Routes = [
     canActivate: [AuthorizationGuard],
     children: [
       {
-        path: 'checkout', component: CheckoutComponent
+        path: 'checkout', component: CheckoutComponent,
+      },
+      {
+        path: 'checkout/success', component: SuccessComponent,
+      },
+      {
+        path: 'checkout/cancel', component: CancelComponent,
       }
     ]
   },

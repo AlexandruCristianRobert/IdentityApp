@@ -65,10 +65,11 @@ export class BasketComponent implements OnInit {
 
   onCheckout(): void {
     this.check = true;
-    this.http.post(`${environment.appUrl}/api/stripe/checkout`, this.basket).subscribe(async (res:  any) => {
+    this.http.post(`${environment.appUrl}/checkout/checkout`, this.basket).subscribe(async (res:  any) => {
+      console.log(res);
       let stripe = await loadStripe("pk_test_51O5mO7EIxQnE3jupmUNa9mhyk0ga2GyjaeB0XQgijOnexONVngmrRqsEeeLJd48lcsobD7v8Ysa3P8ZnAtuogIVt00y7vIy8wq");
       stripe?.redirectToCheckout({
-        sessionId: res.id
+        sessionId: res.sessionId
       })
     })
   }

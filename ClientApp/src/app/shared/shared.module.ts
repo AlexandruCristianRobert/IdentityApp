@@ -8,7 +8,10 @@ import {HttpClientModule} from '@angular/common/http';
 import { NotificationComponent } from './components/modals/notification/notification.component'
 import {ModalModule} from 'ngx-bootstrap/modal';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { BasketComponent } from './checkout/basket/basket.component'
+import { BasketComponent } from './checkout/basket/basket.component';
+import { SuccessComponent } from './checkout/success/success.component';
+import { CancelComponent } from './checkout/cancel/cancel.component';
+
 
 
 @NgModule({
@@ -17,7 +20,9 @@ import { BasketComponent } from './checkout/basket/basket.component'
     ValidationMessagesComponent,
     NotificationComponent,
     CheckoutComponent,
-    BasketComponent
+    BasketComponent,
+    SuccessComponent,
+    CancelComponent,
   ],
   imports: [
     CommonModule,

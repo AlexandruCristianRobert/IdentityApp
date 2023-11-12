@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,7 @@ builder.Services.AddDbContext<Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddScoped<JwtService>();
-builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<Webshop.Services.ProductService>();
 
 builder.Services.AddIdentityCore<User>(options =>
 {
@@ -53,6 +54,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = false
         };
     });
+
+StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
 
 builder.Services.AddCors();
 builder.Services.Configure<ApiBehaviorOptions>(opt =>
